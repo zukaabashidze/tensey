@@ -1,0 +1,61 @@
+/* Shared, restrained interaction language for the public site. */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+html{scroll-padding-top:82px}
+.channel:focus-visible,.gallery .grid img:focus-visible{outline:2px solid #80d7ff;outline-offset:4px}
+.social-link[aria-disabled="true"]{cursor:default;opacity:.65}
+.channels .social-channel{
+  width:fit-content;
+  justify-self:center;
+  padding:12px 18px;
+  gap:12px;
+}
+.btn,.social-link,.brand,.language-trigger,.card,.work a{
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:focus-visible,.social-link:focus-visible,.brand:focus-visible,
+.language-trigger:focus-visible,.card:focus-visible,.work a:focus-visible{
+  outline:2px solid #80d7ff;outline-offset:5px;
+}
+@media(hover:hover) and (pointer:fine){
+  /* These short, user-triggered transitions also work in the preview's
+     reduced-motion mode; no looping or large-distance hover movement. */
+  .btn{
+    position:relative;isolation:isolate;overflow:hidden;
+    transition:transform .32s var(--motion-ease),box-shadow .32s ease,
+      border-color .32s ease,background-color .32s ease !important;
+  }
+  .btn::after{
+    content:"";position:absolute;inset:-80% -35%;pointer-events:none;
+    background:linear-gradient(110deg,transparent 38%,#ffffff30 49%,transparent 60%);
+    transform:translateX(-90%);
+    transition:transform .65s var(--motion-ease) !important;
+  }
+  .btn:hover,.btn:focus-visible{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px -10px #159cf2aa,inset 0 1px 0 #ffffff50;
+  }
+  .btn:hover::after,.btn:focus-visible::after{transform:translateX(90%)}
+  .btn-ghost:hover{background-color:#159cf210;border-color:#5cbff7;box-shadow:0 8px 26px -14px #159cf299,inset 0 1px 0 #ffffff16}
+  .btn:active{transform:translateY(0) scale(.98);transition-duration:.1s !important}
+  .social-link,.language-trigger{
+    transition:transform .3s var(--motion-ease),box-shadow .3s ease,border-color .3s ease,background-color .3s ease !important;
+  }
+  .social-link svg,.channel .ic svg,.language-trigger>svg:first-child,.brand img{
+    transition:transform .4s var(--motion-ease),filter .4s ease !important;
+  }
+  .social-link:hover{transform:translateY(-3px);border-color:#6bcfff;box-shadow:0 9px 25px -9px #1ba0f280,inset 0 1px 0 #ffffff25}
+  .social-link:hover svg{transform:rotate(-7deg) scale(1.1);filter:drop-shadow(0 0 6px #1ba0f280)}
+  .social-link:active{transform:translateY(0) scale(.96)}
+  .channel:hover .ic svg{transform:translateY(-2px) rotate(-6deg);filter:drop-shadow(0 3px 5px #1ba0f270)}
+  .brand:hover img{transform:rotate(-5deg) scale(1.06);filter:drop-shadow(0 0 8px #1ba0f260)}
+  .language-trigger:hover{transform:translateY(-1px);border-color:#438ab5;box-shadow:0 6px 20px -12px #1ba0f2}
+  .language-trigger:hover>svg:first-child{transform:rotate(15deg)}
+  .card,.work a{
+    transition:transform .45s var(--motion-ease),box-shadow .45s ease,border-color .3s ease !important;
+  }
+  .card:hover,.work a:hover{transform:translateY(-5px);border-color:#409ac6;box-shadow:0 20px 40px -24px #159cf2aa,0 12px 24px -12px #0009}
+  .card .shot img,.work a img{transition:transform .65s var(--motion-ease),filter .65s ease !important}
+  .card:hover .shot img,.work a:hover img{transform:scale(1.035);filter:saturate(1.07)}
+  .links a{transition:color .25s ease,border-color .25s ease,text-shadow .25s ease !important}
+  .links a:hover{color:#dff5ff;text-shadow:0 0 18px #1ba0f255}
+}

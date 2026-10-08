@@ -1,0 +1,37 @@
+/* Original collage used as CSS sprite windows, with uniform spacing.
+   The same six pictures repeat per row, with an equal trailing gap. */
+.hero-bg::before{content:none}
+.hero-collage{
+  --unit:calc(2400px / 6859);
+  --card-width:calc(549 * var(--unit));
+  --card-height:calc(309 * var(--unit));
+  --gap:calc(20 * var(--unit));
+  --cycle:38.28770733567351s;
+  position:absolute;inset:-20vmax;
+  transform:rotate(-8deg);transform-origin:center;
+  overflow:hidden;display:flex;flex-direction:column;gap:var(--gap);
+}
+.collage-row{flex:0 0 var(--card-height);height:var(--card-height)}
+.collage-row-offset{margin-left:calc(62 * var(--unit))}
+.collage-row-track{
+  display:flex;width:max-content;height:100%;
+  animation:seamless-collage var(--cycle) linear infinite !important;
+  will-change:transform;
+}
+.collage-group{display:flex;gap:var(--gap);padding-right:var(--gap);flex:none}
+.collage-group>i{
+  display:block;flex:none;width:var(--card-width);height:var(--card-height);
+  border-radius:calc(18 * var(--unit));
+  background-image:url("../assets/portfolio/xx.png");background-repeat:no-repeat;
+  background-size:calc(6859 * var(--unit)) calc(1930 * var(--unit));
+  background-position:calc(-1 * var(--source-x) * var(--unit)) calc(-1 * var(--source-y) * var(--unit));
+}
+/* Six identical groups: percentage uses rendered geometry, avoiding
+   subpixel rounding drift at the loop boundary. */
+@keyframes seamless-collage{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-100% / 6))}
+}
+@media(max-width:720px){
+  .hero-collage{--unit:calc(1600px / 6859);--cycle:25.52513822378234s}
+}

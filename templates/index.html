@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TSM Designs — Thumbnails, logos and branding for creators</title>
+<meta name="description" content="TSM Designs is a creative studio making thumbnails, logos, banners and posters for content creators, streamers and brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#04070d;
+  --panel:#0a0f1a;
+  --panel-2:#101726;
+  --line:#1c2740;
+  --blue:#1ba0f2;
+  --blue-deep:#0b6fd0;
+  --gold:#ffcf2d;
+  --text:#e8eef7;
+  --muted:#8fa0b8;
+  --display:"Chakra Petch",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--ink);color:var(--text);font-family:var(--body);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,5.5vw,3.6rem)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(4,7,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:1.5rem;height:66px}
+.brand{display:flex;align-items:center;gap:.65rem;font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:.02em;margin-right:auto}
+.brand img{width:36px;height:36px}
+.brand span{color:var(--blue)}
+.links{display:flex;gap:1.6rem;font-weight:500;font-size:.95rem;flex:1;justify-content:center}
+.links a{padding:.35rem 0;border-bottom:2px solid transparent;color:var(--muted);transition:color .18s,border-color .18s}
+.links a:hover,.links a.on{color:#fff;border-color:var(--blue)}
+.links a.on{color:var(--blue)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--display);font-weight:700;font-size:.95rem;
+  padding:.62rem 1.3rem;border-radius:999px;border:0;cursor:pointer;
+  background:linear-gradient(180deg,var(--blue),var(--blue-deep));color:#fff;
+  box-shadow:0 6px 24px -8px rgba(27,160,242,.85);transition:transform .18s,box-shadow .18s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(27,160,242,.95)}
+.btn-lg{font-size:1.15rem;padding:.85rem 2rem}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text);box-shadow:none}
+.btn-ghost:hover{border-color:var(--blue);color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:.2rem .4rem}
+
+/* ---------- hero ---------- */
+.hero{padding:0;position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+/* Reference video: a tilted collage sliding along its rows.
+   Move by exactly one tile for an invisible, constant-speed loop. */
+.hero-bg{position:absolute;inset:0;opacity:.9;pointer-events:none;overflow:hidden}
+.hero-bg::before{
+  content:"";position:absolute;inset:-20vmax;
+  background-image:url("assets/portfolio/xx.png");
+  background-repeat:repeat;
+  background-size:2400px auto;
+  background-position:0 0;
+  transform:rotate(-8deg);
+  transform-origin:center;
+  animation:collage-slide 50s linear infinite;
+}
+@keyframes collage-slide{
+  from{background-position:0px 0px}
+  to{background-position:-2400px 0px}
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,var(--ink) 4%,rgba(4,7,13,.94) 34%,rgba(4,7,13,.45) 62%,rgba(4,7,13,.72) 100%),
+    linear-gradient(0deg,var(--ink) 2%,transparent 30%);
+}
+.hero-in{position:relative;z-index:2;padding:2rem 0}
+.hero h1{font-size:clamp(3.2rem,7vw,4.5rem);margin-bottom:1rem}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p{max-width:47ch;color:#c6d2e2;font-size:1.02rem;margin:0 0 2rem}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.hero-meta{display:flex;gap:2.2rem;margin-top:3rem;flex-wrap:wrap}
+.hero-meta div{border-left:2px solid var(--blue);padding-left:.9rem}
+.hero-meta b{display:block;font-family:var(--display);font-size:1.7rem;line-height:1}
+.hero-meta small{color:var(--muted);font-size:.85rem}
+
+/* ---------- sections ---------- */
+section{padding:5.5rem 0}
+.sec-head{max-width:62ch;margin-bottom:2.8rem}
+.sec-head p{color:var(--muted);margin:.8rem 0 0}
+.grid-bg{background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/100% 84px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/84px 100%,
+  var(--ink);
+  background-blend-mode:normal;position:relative}
+.grid-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,transparent 10%,var(--ink) 78%);pointer-events:none}
+.grid-bg>*{position:relative;z-index:1}
+
+/* ---------- services ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer}
+.card:hover{transform:translateY(-4px);border-color:var(--blue);box-shadow:0 16px 34px -18px rgba(27,160,242,.6)}
+.card .shot{aspect-ratio:16/9;background:#000;overflow:hidden}
+.card .shot:empty{display:none}
+.card .shot img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.card:hover .shot img{transform:scale(1.05)}
+.card .txt{padding:1rem 1.1rem 1.3rem}
+.card h3{font-size:1.1rem;margin-bottom:.35rem}
+.card p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.5}
+.card.logo-card .shot{display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#0d2a4d,#04070d 70%)}
+.card.logo-card .shot img{width:auto;height:76%;object-fit:contain}
+
+/* ---------- work ---------- */
+.work{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.work a{display:block;margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;background:#000}
+.work a:hover{border-color:var(--blue)}
+.work img{width:100%;height:100%;object-fit:cover;transition:transform .4s,filter .4s;filter:saturate(1.05)}
+.work a:hover img{transform:scale(1.06)}
+.work a:nth-child(1),.work a:nth-child(6){grid-column:span 2;grid-row:span 2}
+
+/* ---------- feedback ---------- */
+.fb{background:var(--panel);border-block:1px solid var(--line);position:relative;overflow:hidden}
+.fb-in{display:grid;grid-template-columns:.85fr 2.6fr;gap:2.5rem;align-items:start}
+.fb h2 b{color:var(--gold);font-weight:700}
+.fb-side p{color:var(--muted);margin-top:1rem;font-size:.95rem}
+.fb-rail{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.quote{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:1.2rem}
+.quote-top{display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem}
+.avatar{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--display);font-weight:700;color:#fff;font-size:1rem}
+.quote-top b{display:block;font-size:.95rem;line-height:1.2}
+.quote-top small{color:var(--muted);font-size:.78rem}
+.quote p{font-size:.88rem;color:#cdd8e6;margin:0 0 .8rem;line-height:1.55}
+.stars{color:var(--gold);letter-spacing:.1em;font-size:.9rem}
+.verified{width:14px;height:14px;vertical-align:-2px;margin-left:.25rem}
+
+/* ---------- about ---------- */
+.about-in{display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:center}
+.about p{color:var(--muted);margin:1rem 0 0}
+.about ul{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:.8rem}
+.about li{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem}
+.about li svg{flex:none;margin-top:.28rem}
+.about-art{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.about-art .halo{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(27,160,242,.35),transparent 65%);filter:blur(18px)}
+.about-art img{position:relative;width:62%}
+
+/* ---------- contact ---------- */
+.contact-in{display:grid;grid-template-columns:1fr 1.15fr;gap:3rem}
+form{display:grid;gap:1rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+label{font-size:.82rem;color:var(--muted);display:block;margin-bottom:.35rem}
+input,textarea,select{
+  width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);
+  border-radius:9px;padding:.75rem .9rem;font:inherit;font-size:.93rem;
+}
+input:focus,textarea:focus,select:focus{border-color:var(--blue);outline:none}
+textarea{min-height:130px;resize:vertical}
+.channels{display:grid;gap:.9rem;margin-top:1.8rem}
+.channel{display:flex;gap:.9rem;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.9rem 1.1rem}
+.channel .ic{width:38px;height:38px;border-radius:9px;background:rgba(27,160,242,.13);display:grid;place-items:center;flex:none;color:var(--blue)}
+.channel b{display:block;font-size:.93rem}
+.channel small{color:var(--muted);font-size:.83rem}
+.social-channel{justify-content:center;gap:.7rem;padding:1rem}
+.social-link{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,rgba(27,160,242,.2),rgba(27,160,242,.08));border:1px solid rgba(27,160,242,.34);display:grid;place-items:center;color:#dff4ff;transition:transform .18s,border-color .18s,background .18s,box-shadow .18s}
+.social-link:hover,.social-link:focus-visible{transform:translateY(-2px);border-color:var(--blue);background:rgba(27,160,242,.22);box-shadow:0 12px 28px rgba(27,160,242,.2);outline:none}
+.social-link svg{width:21px;height:21px}
+.note{font-size:.82rem;color:var(--muted)}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:2.2rem 0;background:var(--panel)}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.86rem;color:var(--muted)}
+.foot .brand{margin:0;font-size:1rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .fb-in{grid-template-columns:1fr}
+  .fb-rail{grid-template-columns:repeat(2,1fr)}
+  .about-in,.contact-in{grid-template-columns:1fr}
+  .about-art{max-width:340px;margin-inline:auto}
+  .work{grid-template-columns:repeat(2,1fr)}
+  .work a:nth-child(1),.work a:nth-child(6){grid-column:span 2;grid-row:auto}
+}
+@media (max-width:720px){
+  .links{position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:var(--panel);border-bottom:1px solid var(--line);padding:.5rem 4vw 1rem;display:none}
+  .links.open{display:flex}
+  .links a{padding:.75rem 0;border-bottom:1px solid var(--line)}
+  .burger{display:block;order:3}
+  .nav .btn{display:none}
+  section{padding:3.8rem 0}
+  .hero-in{padding:4rem 0}
+  .hero-bg::after{background:linear-gradient(90deg,rgba(4,7,13,.93),rgba(4,7,13,.78)),linear-gradient(0deg,var(--ink) 3%,transparent 45%)}
+  .cards,.work,.fb-rail{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr}
+}
+.nav .btn{font-size:.85rem;padding:.48rem 1.05rem}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>.language-control{position:relative;flex-shrink:0;color:#b6c8dc}
+.language-trigger{display:flex;align-items:center;gap:8px;padding:7px 11px;background:#0a101b;border:1px solid #26364d;border-radius:999px;color:inherit;font:500 12px/1.5 system-ui;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.language-trigger:hover,.language-trigger[aria-expanded="true"]{background:#102239;border-color:#1ba0f2;color:#e8f5ff}
+.language-chevron{transition:transform .18s}.language-trigger[aria-expanded="true"] .language-chevron{transform:rotate(180deg)}
+.language-menu{position:absolute;right:0;top:calc(100% + 10px);width:186px;padding:6px;background:linear-gradient(145deg,#111d2e,#080f1c);border:1px solid #263e59;border-radius:13px;box-shadow:0 16px 40px #0009;z-index:80}
+.language-menu[hidden]{display:none}.language-menu button{display:flex;align-items:center;gap:10px;width:100%;padding:10px 9px;background:transparent;color:#b8c9dd;border:0;border-radius:8px;text-align:left;font:500 13px/1.5 system-ui;cursor:pointer}
+.language-menu button:hover,.language-menu button:focus-visible{background:#182c43;color:#fff;outline:2px solid #1ba0f2;outline-offset:-2px}
+.language-menu button[aria-checked="true"]{background:#1ba0f218;color:#4cbcff}
+.language-code{font-size:10px;letter-spacing:.07em;padding:3px 4px;min-width:27px;text-align:center;border:1px solid #29435e;border-radius:5px}
+.language-check{margin-left:auto;visibility:hidden}.language-menu button[aria-checked="true"] .language-check{visibility:visible}
+html[lang="ka"]{--display:"Noto Sans Georgian",system-ui,sans-serif;--body:"Noto Sans Georgian",system-ui,sans-serif}
+html[lang="ka"] h1,html[lang="ka"] h2,html[lang="ka"] h3{line-height:1.3}
+html[lang="ka"] .hero h1{font-size:clamp(2rem,4vw,3.4rem)}
+html[lang="ka"] .hero p{font-size:.95rem;max-width:62ch}
+html[lang="ka"] .hero-meta{gap:1.3rem;margin-top:2rem}
+html[lang="ka"] .hero-meta small{font-size:.73rem}
+html[lang="ka"] .links{gap:1.2rem;font-size:.85rem}
+html[lang="ka"] .btn-lg{font-size:1rem}
+html[lang="ka"] .fb h2{font-size:clamp(1.8rem,3.4vw,2.8rem)}
+html[lang="ka"] .card h3{font-size:1rem}
+@media(max-width:1050px) and (min-width:721px){.nav-in{gap:.65rem}.links{gap:.8rem}html[lang="ka"] .links{gap:.65rem;font-size:.75rem}.brand{font-size:1rem}.nav .btn{padding:.45rem .7rem;font-size:.75rem}}
+@media(max-width:720px){.nav-in{gap:.65rem}.language-control{margin-left:auto}.brand{margin-right:0}html[lang="ka"] .hero-in{padding:2.5rem 0}html[lang="ka"] .hero-meta{gap:1rem}html[lang="ka"] .links{font-size:.9rem}}
+@media(max-width:380px){.brand{font-size:.9rem;gap:.4rem}.brand img{width:28px;height:28px}.language-control{padding:5px 6px;gap:3px}.nav-in{gap:.4rem}.language-control svg{width:16px}}
+</style>
+<style id="mobile-layout">/* Phone layout only; desktop rules remain unchanged. */
+.mobile-contact{display:none}
+@media(max-width:720px){
+  html{scroll-padding-top:78px}
+  body{overflow-x:hidden}
+  .wrap{width:calc(100% - 32px)}
+  .nav-in{height:64px;gap:8px}
+  .nav .brand{font-size:.95rem;gap:6px;white-space:nowrap;flex-shrink:0;margin:0}
+  .nav .brand img{width:30px;height:30px}
+  .language-control{margin-left:auto;padding:0}
+  .language-trigger{min-height:40px;padding:7px 9px;gap:5px;font-size:11px}
+  .language-trigger>svg:first-child{width:16px;height:16px}
+  .language-menu{right:0;width:184px;top:calc(100% + 9px)}
+  .language-menu button{min-height:46px}
+  .burger{display:grid;place-items:center;order:3;min-width:40px;min-height:44px;padding:0;border-radius:9px;font-size:1.4rem}
+  .burger:hover,.burger[aria-expanded="true"]{background:#142235;color:var(--blue)}
+  .links{top:64px;padding:8px 16px 16px;max-height:calc(100dvh - 64px);overflow-y:auto;box-shadow:0 20px 30px #0006}
+  .links a,html[lang="ka"] .links a{min-height:48px;display:flex;align-items:center;padding:12px;font-size:.95rem;border-radius:7px}
+  .links a:hover{background:#122036}
+  .links .mobile-contact{display:flex;color:var(--blue);border-bottom:0}
+  section{padding:48px 0}
+  .hero{min-height:0}
+  .hero-in,html[lang="ka"] .hero-in{padding:44px 0 34px}
+  .hero h1{font-size:clamp(2rem,9.5vw,3.4rem);line-height:1.1;letter-spacing:-.025em;overflow-wrap:break-word}
+  html[lang="ka"] .hero h1{font-size:clamp(1.6rem,6.6vw,2.7rem);line-height:1.3;letter-spacing:-.015em}
+  .hero p,html[lang="ka"] .hero p{font-size:.91rem;line-height:1.8;max-width:100%;margin-bottom:24px}
+  .hero-bg::before{background-size:1600px auto;animation-name:mobile-collage-slide;animation-duration:1s}
+  .hero-bg::after{background:linear-gradient(90deg,rgba(4,7,13,.94),rgba(4,7,13,.7)),linear-gradient(0deg,var(--ink),transparent 55%)}
+  .hero-cta{gap:10px;display:grid;grid-template-columns:1fr 1fr}
+  .hero-cta .btn,html[lang="ka"] .hero-cta .btn{min-height:48px;padding:12px 8px;font-size:.83rem;text-align:center;line-height:1.5}
+  .hero-meta,html[lang="ka"] .hero-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:28px}
+  .hero-meta div{padding-left:8px;min-width:0}
+  .hero-meta b{font-size:1.4rem}
+  .hero-meta small,html[lang="ka"] .hero-meta small{display:block;font-size:.65rem;line-height:1.6;margin-top:6px;overflow-wrap:anywhere}
+  h2,html[lang="ka"] h2{font-size:clamp(1.75rem,7.5vw,2.5rem);line-height:1.25}
+  .sec-head{margin-bottom:24px}.sec-head p{font-size:.9rem;line-height:1.8}
+  .cards,.fb-rail{gap:16px}.card .txt{padding:18px}.card p{font-size:.9rem}
+  .fb-in,.about-in,.contact-in{grid-template-columns:minmax(0,1fr);gap:28px}
+  .quote{padding:20px}.quote p{font-size:.9rem;line-height:1.8}
+  .about p,.about li{font-size:.91rem;line-height:1.8}
+  .about-art{width:100%;max-width:240px}
+  .contact-in>div,.contact-in form{min-width:0}
+  .channel{padding:14px 12px;gap:10px}.channel>span:last-child{min-width:0}
+  .channel b{font-size:.88rem;overflow-wrap:anywhere}.channel small{font-size:.8rem}
+  .channel .ic{flex-shrink:0}
+  .row{grid-template-columns:minmax(0,1fr)}
+  form input,form textarea,form select{font-size:16px;min-height:48px}
+  form textarea{min-height:150px}form label{font-size:.84rem}
+  form>.btn{width:100%;min-height:48px}
+  .page-head{padding:36px 0 28px}.page-head h1{font-size:clamp(2rem,8vw,3rem)}
+  html[lang="ka"] .page-head h1{font-size:clamp(1.7rem,7vw,2.6rem);overflow-wrap:anywhere}
+  .page-head p{font-size:.91rem;line-height:1.8}.crumb{font-size:.8rem;flex-wrap:wrap}
+  .gallery{padding:0 0 40px}
+  .grid.thumbnail-grid,.grid.logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .grid.tight{grid-template-columns:minmax(0,1fr);gap:16px}
+  .grid figure{min-width:0;border-radius:9px}
+  .cta-strip{padding:32px 0}.cta-strip h2{font-size:1.5rem}.cta-strip p{font-size:.9rem}
+  .cta-strip .btn{min-height:46px}
+  .lightbox{padding:64px 12px 24px}.lightbox img{max-width:100%;max-height:calc(100dvh - 100px)}
+  .lightbox button{top:12px;right:12px;min-width:44px;min-height:44px}
+  footer{padding:28px 0}.foot{flex-direction:column;align-items:flex-start;gap:16px;font-size:.77rem;line-height:1.8}.foot>span{max-width:100%;overflow-wrap:break-word}
+  @keyframes mobile-collage-slide{from{background-position:0 0}to{background-position:-1600px 0}}
+}
+@media(max-width:360px){
+  .wrap{width:calc(100% - 24px)}.nav-in{gap:4px}.nav .brand{font-size:.78rem;gap:4px}.nav .brand img{width:26px;height:26px}
+  .language-trigger{padding:6px;gap:4px;font-size:10px}.language-chevron{display:none}.burger{min-width:36px}
+  .hero-cta{grid-template-columns:1fr}.hero-in,html[lang="ka"] .hero-in{padding-top:34px}
+}
+</style>
+<link rel="stylesheet" href="static/interactions.css">
+<link rel="icon" href="assets/portfolio/logo.png" type="image/png">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/portfolio/logo.png" alt="TSM Designs logo">TSM <span>DESIGNS</span></a>
+    <nav class="links" id="links">
+      <a href="#top" class="on">Home</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn" href="#contact">Contact us</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" >
+    <div class="hero-bg" aria-hidden="true"><div class="hero-collage"><div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:0"></i><i style="--source-x:568;--source-y:0"></i><i style="--source-x:1137;--source-y:0"></i><i style="--source-x:1705;--source-y:0"></i><i style="--source-x:2273;--source-y:0"></i><i style="--source-x:2841;--source-y:0"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:324"></i><i style="--source-x:630;--source-y:324"></i><i style="--source-x:1198;--source-y:324"></i><i style="--source-x:1767;--source-y:324"></i><i style="--source-x:2335;--source-y:324"></i><i style="--source-x:2903;--source-y:324"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:648"></i><i style="--source-x:568;--source-y:648"></i><i style="--source-x:1137;--source-y:648"></i><i style="--source-x:1705;--source-y:648"></i><i style="--source-x:2273;--source-y:648"></i><i style="--source-x:2841;--source-y:648"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:973"></i><i style="--source-x:630;--source-y:973"></i><i style="--source-x:1198;--source-y:973"></i><i style="--source-x:1767;--source-y:973"></i><i style="--source-x:2335;--source-y:973"></i><i style="--source-x:2903;--source-y:973"></i></div></div></div>
+<div class="collage-row"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div><div class="collage-group"><i style="--source-x:0;--source-y:1297"></i><i style="--source-x:568;--source-y:1297"></i><i style="--source-x:1137;--source-y:1297"></i><i style="--source-x:1705;--source-y:1297"></i><i style="--source-x:2273;--source-y:1297"></i><i style="--source-x:2841;--source-y:1297"></i></div></div></div>
+<div class="collage-row collage-row-offset"><div class="collage-row-track"><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div><div class="collage-group"><i style="--source-x:62;--source-y:1621"></i><i style="--source-x:630;--source-y:1621"></i><i style="--source-x:1198;--source-y:1621"></i><i style="--source-x:1767;--source-y:1621"></i><i style="--source-x:2335;--source-y:1621"></i><i style="--source-x:2903;--source-y:1621"></i></div></div></div></div></div>
+    <div class="wrap hero-in">
+      <h1>Thumbnails that<br>get the <em>click</em>.</h1>
+      <p>TSM Designs is a creative studio making eye-catching visual media, custom branding and dynamic graphics for content creators, businesses and digital platforms. High-impact typography, bold colour and clear visual hierarchy — turned into assets people remember.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lg" href="#portfolio">Our work</a>
+        <a class="btn btn-lg btn-ghost" href="#contact">Start a project</a>
+      </div>
+        <div class="hero-meta">
+          <span></span>
+          <div><b><span class="counter" data-target="400">0</span>+</b><small>creators and brands</small></div>
+          <div><b class="counter" data-target="2500">0</b><small>designs delivered</small></div>
+          <div><b class="counter" data-target="24">0</b><small>h average turnaround</small></div>
+        </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="grid-bg">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Portfolio</h2>
+        <p>Thumbnails, banners, logos, posters and jerseys — built for YouTube, Twitch, TikTok and everything in between.</p>
+      </div>
+      <div class="cards">
+        <a class="card" href="thumbnails.html">
+          <div class="shot"></div>
+          <div class="txt"><h3>Thumbnails</h3><p>The preview frame that decides whether someone clicks. Faces, contrast and text that reads at any size.</p></div>
+        </a>
+        <a class="card logo-card" href="logos.html">
+          <div class="shot"></div>
+          <div class="txt"><h3>Logos</h3><p>A mark that works everywhere — from a profile picture to a favicon to the side of a jersey.</p></div>
+        </a>
+        <a class="card" href="banners.html">
+          <div class="shot"></div>
+          <div class="txt"><h3>Banners </h3><p>Channel art that says who you are and what you make in a single glance.</p></div>
+        </a>
+        <a class="card" href="posters.html">
+          <div class="shot"></div>
+          <div class="txt"><h3>Posters</h3><p>Event and promo artwork built to catch attention from across the room.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="feedback" class="fb">
+    <div class="wrap fb-in">
+      <div class="fb-side">
+        <h2>What people <b>say</b></h2>
+        <p>Trusted by 400+ creators and brands. Here's what they think about the work.</p>
+      </div>
+      <div class="fb-rail">
+        <article class="quote">
+          <div class="quote-top">
+            <span class="avatar" style="background:#1ba0f2;color:#fff">G</span>
+            <span><b>Giorgi K.<svg class="verified" viewBox="0 0 24 24" fill="#1ba0f2"><path d="M12 1.6 14.6 4l3.4-.3.9 3.3 3 1.7-1.3 3.2 1.3 3.2-3 1.7-.9 3.3-3.4-.3L12 22.4 9.4 20l-3.4.3-.9-3.3-3-1.7L3.4 12 2.1 8.8l3-1.7.9-3.3L9.4 4 12 1.6Z"/><path d="M7.6 12.2 10.5 15l5.9-6" stroke="#0a0f1a" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>YouTube · 1.2M subs</small></span>
+          </div>
+          <p>"Our click-through rate jumped after the first batch of thumbnails. They understand what makes a Georgian audience stop scrolling."</p>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        </article>
+        <article class="quote">
+          <div class="quote-top">
+            <span class="avatar" style="background:#8b5cf6;color:#fff">A</span>
+            <span><b>Ana M.<svg class="verified" viewBox="0 0 24 24" fill="#1ba0f2"><path d="M12 1.6 14.6 4l3.4-.3.9 3.3 3 1.7-1.3 3.2 1.3 3.2-3 1.7-.9 3.3-3.4-.3L12 22.4 9.4 20l-3.4.3-.9-3.3-3-1.7L3.4 12 2.1 8.8l3-1.7.9-3.3L9.4 4 12 1.6Z"/><path d="M7.6 12.2 10.5 15l5.9-6" stroke="#0a0f1a" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>Twitch streamer</small></span>
+          </div>
+          <p>"Fast, easy to talk to and the revisions never felt like a hassle. The channel finally looks like one brand."</p>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        </article>
+        <article class="quote">
+          <div class="quote-top">
+            <span class="avatar" style="background:#ef4444;color:#fff">R</span>
+            <span><b>Right Guys<svg class="verified" viewBox="0 0 24 24" fill="#1ba0f2"><path d="M12 1.6 14.6 4l3.4-.3.9 3.3 3 1.7-1.3 3.2 1.3 3.2-3 1.7-.9 3.3-3.4-.3L12 22.4 9.4 20l-3.4.3-.9-3.3-3-1.7L3.4 12 2.1 8.8l3-1.7.9-3.3L9.4 4 12 1.6Z"/><path d="M7.6 12.2 10.5 15l5.9-6" stroke="#0a0f1a" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>YouTube channel</small></span>
+          </div>
+          <p>"Quality and attention to detail is insane. We send a raw title and get back something we can publish the same day."</p>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        </article>
+        <article class="quote">
+          <div class="quote-top">
+            <span class="avatar" style="background:#ffffff;color:#0a0f1a">N</span>
+            <span><b>Nerds Clothing<svg class="verified" viewBox="0 0 24 24" fill="#1ba0f2"><path d="M12 1.6 14.6 4l3.4-.3.9 3.3 3 1.7-1.3 3.2 1.3 3.2-3 1.7-.9 3.3-3.4-.3L12 22.4 9.4 20l-3.4.3-.9-3.3-3-1.7L3.4 12 2.1 8.8l3-1.7.9-3.3L9.4 4 12 1.6Z"/><path d="M7.6 12.2 10.5 15l5.9-6" stroke="#0a0f1a" stroke-width="1.9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></b><small>Brand</small></span>
+          </div>
+          <p>"Professional, creative and always on point. They're our go-to designers for every drop we announce."</p>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-in">
+      <div class="about">
+        <h2>About the studio</h2>
+        <p>TSM Designs is a small team of designers working with Georgian and international creators. We know what a feed looks like at 2am on a phone screen, and we design for that — not for a portfolio wall.</p>
+        <p>Every project starts with your content, not a template. Send the raw footage, the concept or just the title, and we'll come back with something you can publish.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1ba0f2" stroke-width="2.4"><path d="M2 8.5l4 4 8-9"/></svg>Unlimited revisions until you're happy with it</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1ba0f2" stroke-width="2.4"><path d="M2 8.5l4 4 8-9"/></svg>Source files handed over on request</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1ba0f2" stroke-width="2.4"><path d="M2 8.5l4 4 8-9"/></svg>Rush delivery available for same-day uploads</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#1ba0f2" stroke-width="2.4"><path d="M2 8.5l4 4 8-9"/></svg>Monthly packages for channels posting weekly</li>
+        </ul>
+      </div>
+      <div class="about-art"><div class="halo"></div><img src="assets/portfolio/logo.png" alt="TSM Designs logo"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="grid-bg">
+    <div class="wrap contact-in">
+      <div>
+        <h2>Start a project</h2>
+        <p style="color:var(--muted)">Tell us what you're making and when you need it. We usually reply within a few hours.</p>
+        <div class="channels">
+          <div class="channel">
+            <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+            <span><b>tsmdesigns7@gmail.com</b><small>Email us</small></span>
+          </div>
+          <div class="channel">
+            <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2h4l2 5-2.5 1.5a12 12 0 0 0 6 6L16 13l5 2Z"/></svg></span>
+            <span><b>+30 699 9514 986</b><small>Call us</small></span>
+          </div>
+          <div class="channel social-channel" aria-label="Social links">
+            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.6V6.9c0-.8.2-1.3 1.4-1.3H17V2.7c-.8-.1-1.7-.2-2.6-.2-2.7 0-4.5 1.6-4.5 4.6v1.5H7v3.2h2.9v8.7H14v-8.7h2.8l.4-3.2H14Z"/></svg>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.4"/><circle cx="16.8" cy="7.2" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a class="social-link" href="https://discord.com/" target="_blank" rel="noopener" aria-label="Discord">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 5.2A16 16 0 0 0 15.5 4l-.2.5c1.4.4 2 .9 2 .9a13.4 13.4 0 0 0-10.5 0s.6-.5 2-.9L8.5 4a16 16 0 0 0-3.9 1.2C2.1 9 1.4 12.8 1.7 16.5A15.8 15.8 0 0 0 6.5 19l.9-1.5c-.5-.2-1-.5-1.4-.9l.3.1a11.5 11.5 0 0 0 11.4 0l.3-.1c-.4.4-.9.7-1.4.9l.9 1.5a15.8 15.8 0 0 0 4.8-2.5c.3-4.3-.8-8.1-2.9-11.3ZM8.6 14.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.7.8 1.6 1.8c0 1-.7 1.8-1.6 1.8Zm6.8 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.7.8 1.6 1.8c0 1-.7 1.8-1.6 1.8Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <form id="form">
+        <div class="row">
+          <div><label for="name">Your name</label><input id="name" name="name" required placeholder="Nika"></div>
+          <div><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@channel.com"></div>
+        </div>
+        <div class="row">
+          <div><label for="type">What do you need?</label>
+            <select id="type" name="type">
+              <option>Thumbnails</option><option>Logo</option><option>Banner</option>
+              <option>Poster</option><option>Jersey</option><option>Monthly package</option>
+            </select>
+          </div>
+          <div><label for="when">Deadline</label><input id="when" name="when" placeholder="This week"></div>
+        </div>
+        <div><label for="msg">Project details</label><textarea id="msg" name="msg" placeholder="Channel link, video title, style you're after…"></textarea></div>
+        <button class="btn btn-lg" type="submit" style="justify-self:start">Prepare email</button>
+        <p class="note" id="note" role="status">Opens a draft in your email app. Send it there to contact us.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top"><img src="assets/portfolio/logo.png" alt="">TSM <span>DESIGNS</span></a>
+    <span>© 2026 TSM Designs. Branding and graphics for creators.</span>
+  </div>
+</footer>
+
+
+<script>window.TSM_UPLOADED_PORTFOLIO = {{ uploaded_items|tojson }};</script>
+<script src="static/portfolio-loader.js"></script>
+<script src="static/site-config.js"></script>
+<script src="static/site.js"></script>
+<script src="static/mobile.js"></script>
+<script src="static/language.js"></script>
+</body>
+</html>
