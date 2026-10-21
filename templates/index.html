@@ -117,8 +117,6 @@ section{padding:5.5rem 0}
 .card .txt{padding:1rem 1.1rem 1.3rem}
 .card h3{font-size:1.1rem;margin-bottom:.35rem}
 .card p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.5}
-.card.logo-card .shot{display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,#0d2a4d,#04070d 70%)}
-.card.logo-card .shot img{width:auto;height:76%;object-fit:contain}
 
 /* ---------- work ---------- */
 .work{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
@@ -154,16 +152,31 @@ section{padding:5.5rem 0}
 .about-art img{position:relative;width:62%}
 
 /* ---------- contact ---------- */
-.contact-in{display:grid;grid-template-columns:1fr 1.15fr;gap:3rem}
-form{display:grid;gap:1rem}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-label{font-size:.82rem;color:var(--muted);display:block;margin-bottom:.35rem}
-input,textarea,select{
-  width:100%;background:var(--panel);border:1px solid var(--line);color:var(--text);
-  border-radius:9px;padding:.75rem .9rem;font:inherit;font-size:.93rem;
+.contact-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(1.5rem,4vw,3rem)}
+.contact-in>div,.motion-card{min-width:0}
+.motion-card{
+  min-height:370px;position:relative;isolation:isolate;overflow:hidden;display:flex;
+  flex-direction:column;justify-content:space-between;padding:1.6rem;
+  border:1px solid rgba(63,125,190,.35);border-radius:18px;
+  background:radial-gradient(ellipse at 78% 45%,rgba(18,101,170,.28),transparent 48%),linear-gradient(145deg,#101a2a,#070b13 70%);
+  box-shadow:0 24px 70px -42px rgba(27,160,242,.7)
 }
-input:focus,textarea:focus,select:focus{border-color:var(--blue);outline:none}
-textarea{min-height:130px;resize:vertical}
+.motion-card::before,.motion-card::after{content:"";position:absolute;z-index:0;pointer-events:none}
+.motion-card::before{inset:0;background:linear-gradient(rgba(74,144,208,.07) 1px,transparent 1px) 0 0/100% 32px,linear-gradient(90deg,rgba(74,144,208,.07) 1px,transparent 1px) 0 0/32px 100%;mask-image:linear-gradient(110deg,#000,transparent 80%)}
+.motion-card::after{width:clamp(170px,28vw,280px);aspect-ratio:1;right:clamp(0px,4vw,36px);top:50%;transform:translateY(-50%);border-radius:50%;background:radial-gradient(circle,rgba(27,160,242,.2),rgba(27,160,242,.07) 44%,transparent 72%);filter:blur(12px)}
+.motion-top,.motion-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:1rem;color:#91a8c3;font:600 .7rem/1.4 var(--display);letter-spacing:.16em;text-transform:uppercase}
+.motion-live{display:flex;align-items:center;gap:.55rem}
+.motion-live::before{content:"";width:7px;height:7px;border-radius:50%;background:#63e6a5;box-shadow:0 0 12px #63e6a5}
+.motion-main{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.motion-type{display:grid;gap:.04em;margin:1.5rem 0;font:700 clamp(3.4rem,7vw,6rem)/.83 var(--display);letter-spacing:-.065em}
+.motion-type span{display:block;animation:type-arrive .8s both cubic-bezier(.2,.8,.2,1)}
+.motion-type span:nth-child(2){color:#4bbcff;animation-delay:.14s}
+.motion-type span:nth-child(3){color:transparent;-webkit-text-stroke:1px #dcecff;animation-delay:.28s}
+/* Adjust the logo's offset here: negative left moves it left; negative top moves it up. */
+.motion-logo{position:relative;left:-20px;top:-15px;width:clamp(100px,18vw,155px);height:auto;flex:none;filter:drop-shadow(0 0 22px rgba(27,160,242,.4)) drop-shadow(0 0 42px rgba(27,160,242,.14));animation:type-arrive .8s .2s both cubic-bezier(.2,.8,.2,1)}
+.motion-bottom{border-top:1px solid rgba(145,168,195,.2);padding-top:1rem}
+.motion-index{color:#e8eef7}
+@keyframes type-arrive{from{opacity:0;transform:translateY(24px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 .channels{display:grid;gap:.9rem;margin-top:1.8rem}
 .channel{display:flex;gap:.9rem;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.9rem 1.1rem}
 .channel .ic{width:38px;height:38px;border-radius:9px;background:rgba(27,160,242,.13);display:grid;place-items:center;flex:none;color:var(--blue)}
@@ -173,8 +186,6 @@ textarea{min-height:130px;resize:vertical}
 .social-link{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,rgba(27,160,242,.2),rgba(27,160,242,.08));border:1px solid rgba(27,160,242,.34);display:grid;place-items:center;color:#dff4ff;transition:transform .18s,border-color .18s,background .18s,box-shadow .18s}
 .social-link:hover,.social-link:focus-visible{transform:translateY(-2px);border-color:var(--blue);background:rgba(27,160,242,.22);box-shadow:0 12px 28px rgba(27,160,242,.2);outline:none}
 .social-link svg{width:21px;height:21px}
-.note{font-size:.82rem;color:var(--muted)}
-
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:2.2rem 0;background:var(--panel)}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.86rem;color:var(--muted)}
@@ -200,7 +211,11 @@ footer{border-top:1px solid var(--line);padding:2.2rem 0;background:var(--panel)
   .hero-in{padding:4rem 0}
   .hero-bg::after{background:linear-gradient(90deg,rgba(4,7,13,.93),rgba(4,7,13,.78)),linear-gradient(0deg,var(--ink) 3%,transparent 45%)}
   .cards,.work,.fb-rail{grid-template-columns:1fr}
-  .row{grid-template-columns:1fr}
+  .motion-card{min-height:310px;padding:1.2rem}
+  .motion-top{align-items:flex-start;flex-direction:column;gap:.5rem}
+  .motion-main{gap:.5rem}
+  .motion-type{font-size:clamp(2.3rem,11vw,4rem)}
+  .motion-logo{left:-8px;top:-8px;width:clamp(80px,20vw,125px)}
 }
 .nav .btn{font-size:.85rem;padding:.48rem 1.05rem}
 </style>
@@ -270,14 +285,10 @@ html[lang="ka"] .card h3{font-size:1rem}
   .quote{padding:20px}.quote p{font-size:.9rem;line-height:1.8}
   .about p,.about li{font-size:.91rem;line-height:1.8}
   .about-art{width:100%;max-width:240px}
-  .contact-in>div,.contact-in form{min-width:0}
+  .contact-in>div,.motion-card{min-width:0}
   .channel{padding:14px 12px;gap:10px}.channel>span:last-child{min-width:0}
   .channel b{font-size:.88rem;overflow-wrap:anywhere}.channel small{font-size:.8rem}
   .channel .ic{flex-shrink:0}
-  .row{grid-template-columns:minmax(0,1fr)}
-  form input,form textarea,form select{font-size:16px;min-height:48px}
-  form textarea{min-height:150px}form label{font-size:.84rem}
-  form>.btn{width:100%;min-height:48px}
   .page-head{padding:36px 0 28px}.page-head h1{font-size:clamp(2rem,8vw,3rem)}
   html[lang="ka"] .page-head h1{font-size:clamp(1.7rem,7vw,2.6rem);overflow-wrap:anywhere}
   .page-head p{font-size:.91rem;line-height:1.8}.crumb{font-size:.8rem;flex-wrap:wrap}
@@ -296,9 +307,18 @@ html[lang="ka"] .card h3{font-size:1rem}
   .wrap{width:calc(100% - 24px)}.nav-in{gap:4px}.nav .brand{font-size:.78rem;gap:4px}.nav .brand img{width:26px;height:26px}
   .language-trigger{padding:6px;gap:4px;font-size:10px}.language-chevron{display:none}.burger{min-width:36px}
   .hero-cta{grid-template-columns:1fr}.hero-in,html[lang="ka"] .hero-in{padding-top:34px}
+  .motion-main{gap:.25rem}
+  .motion-type{font-size:clamp(1.8rem,10vw,2.5rem)}
+  .motion-logo{left:-2px;top:-6px;width:clamp(56px,21vw,74px)}
+}
+@media(max-width:280px){
+  .nav .brand span{display:none}
+  .language-trigger{padding:5px}
+  .motion-card{padding:1rem}
 }
 </style>
 <link rel="stylesheet" href="static/interactions.css">
+<link rel="stylesheet" href="static/hero-collage.css">
 <link rel="icon" href="assets/portfolio/logo.png" type="image/png">
 </head>
 <body>
@@ -368,19 +388,19 @@ html[lang="ka"] .card h3{font-size:1rem}
       </div>
       <div class="cards">
         <a class="card" href="thumbnails.html">
-          <div class="shot"></div>
+          <div class="shot"><img src="assets/portfolio/index-thumbnails-cover.png" alt="Thumbnails TSM Designs cover"></div>
           <div class="txt"><h3>Thumbnails</h3><p>The preview frame that decides whether someone clicks. Faces, contrast and text that reads at any size.</p></div>
         </a>
         <a class="card logo-card" href="logos.html">
-          <div class="shot"></div>
+          <div class="shot"><img src="assets/portfolio/index-logos-cover.png" alt="Logos TSM Designs cover"></div>
           <div class="txt"><h3>Logos</h3><p>A mark that works everywhere — from a profile picture to a favicon to the side of a jersey.</p></div>
         </a>
         <a class="card" href="banners.html">
-          <div class="shot"></div>
+          <div class="shot"><img src="assets/portfolio/index-banners-cover.png" alt="Banners TSM Designs cover"></div>
           <div class="txt"><h3>Banners </h3><p>Channel art that says who you are and what you make in a single glance.</p></div>
         </a>
         <a class="card" href="posters.html">
-          <div class="shot"></div>
+          <div class="shot"><img src="assets/portfolio/index-posters-cover.png" alt="Posters TSM Designs cover"></div>
           <div class="txt"><h3>Posters</h3><p>Event and promo artwork built to catch attention from across the room.</p></div>
         </a>
       </div>
@@ -461,36 +481,34 @@ html[lang="ka"] .card h3{font-size:1rem}
             <span><b>+30 699 9514 986</b><small>Call us</small></span>
           </div>
           <div class="channel social-channel" aria-label="Social links">
-            <a class="social-link" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <a class="social-link" href="https://www.facebook.com/profile.php?id=61553600310325" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.6V6.9c0-.8.2-1.3 1.4-1.3H17V2.7c-.8-.1-1.7-.2-2.6-.2-2.7 0-4.5 1.6-4.5 4.6v1.5H7v3.2h2.9v8.7H14v-8.7h2.8l.4-3.2H14Z"/></svg>
             </a>
-            <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <a class="social-link" href="https://www.instagram.com/tsm.designs7/" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.4"/><circle cx="16.8" cy="7.2" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a class="social-link" href="https://discord.com/" target="_blank" rel="noopener" aria-label="Discord">
+            <a class="social-link" href="https://discord.gg/RYZRhHtKrS" target="_blank" rel="noopener" aria-label="Discord">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.4 5.2A16 16 0 0 0 15.5 4l-.2.5c1.4.4 2 .9 2 .9a13.4 13.4 0 0 0-10.5 0s.6-.5 2-.9L8.5 4a16 16 0 0 0-3.9 1.2C2.1 9 1.4 12.8 1.7 16.5A15.8 15.8 0 0 0 6.5 19l.9-1.5c-.5-.2-1-.5-1.4-.9l.3.1a11.5 11.5 0 0 0 11.4 0l.3-.1c-.4.4-.9.7-1.4.9l.9 1.5a15.8 15.8 0 0 0 4.8-2.5c.3-4.3-.8-8.1-2.9-11.3ZM8.6 14.3c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.7.8 1.6 1.8c0 1-.7 1.8-1.6 1.8Zm6.8 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.7.8 1.6 1.8c0 1-.7 1.8-1.6 1.8Z"/></svg>
             </a>
           </div>
         </div>
       </div>
-      <form id="form">
-        <div class="row">
-          <div><label for="name">Your name</label><input id="name" name="name" required placeholder="Nika"></div>
-          <div><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@channel.com"></div>
+      <div class="motion-card" role="img" aria-label="Text motion design showcase">
+        <div class="motion-top">
+          <span>TSM / CREATIVE STUDIO</span>
+          <span class="motion-live">Available for projects</span>
         </div>
-        <div class="row">
-          <div><label for="type">What do you need?</label>
-            <select id="type" name="type">
-              <option>Thumbnails</option><option>Logo</option><option>Banner</option>
-              <option>Poster</option><option>Jersey</option><option>Monthly package</option>
-            </select>
+        <div class="motion-main">
+          <div class="motion-type" aria-hidden="true">
+            <span>TSM</span>
+            <span>DESIGN</span>
           </div>
-          <div><label for="when">Deadline</label><input id="when" name="when" placeholder="This week"></div>
+          <img class="motion-logo" src="assets/portfolio/logo.png" alt="">
         </div>
-        <div><label for="msg">Project details</label><textarea id="msg" name="msg" placeholder="Channel link, video title, style you're after…"></textarea></div>
-        <button class="btn btn-lg" type="submit" style="justify-self:start">Prepare email</button>
-        <p class="note" id="note" role="status">Opens a draft in your email app. Send it there to contact us.</p>
-      </form>
+        <div class="motion-bottom">
+          <span>Ideas, brought to life.</span>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -498,7 +516,7 @@ html[lang="ka"] .card h3{font-size:1rem}
 <footer>
   <div class="wrap foot">
     <a class="brand" href="#top"><img src="assets/portfolio/logo.png" alt="">TSM <span>DESIGNS</span></a>
-    <span>© 2026 TSM Designs. Branding and graphics for creators.</span>
+    <span>© 2023-2026 TSM Designs. Branding and graphics for creators.</span>
   </div>
 </footer>
 

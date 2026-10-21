@@ -1,10 +1,35 @@
 import os
 import uuid
-from flask import Flask, abort, render_template, request, redirect, send_from_directory, url_for
-from werkzeug.utils import secure_filename
+import hmac
+import json
+import secrets
 import sqlite3
+from functools import wraps
+from flask import Flask, abort, render_template, request, redirect, send_from_directory, session, url_for
+from werkzeug.security import check_password_hash
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
+AUTH_CONFIG_PATH = os.path.join(app.instance_path, 'admin-auth.json')
+try:
+    with open(AUTH_CONFIG_PATH, encoding='utf-8') as auth_file:
+        auth_config = json.load(auth_file)
+except FileNotFoundError as error:
+    raise RuntimeError(
+        f'Admin authentication config is missing: {AUTH_CONFIG_PATH}'
+    ) from error
+
+for key in ('username', 'password_hash', 'secret_key'):
+    if not isinstance(auth_config.get(key), str) or not auth_config[key]:
+        raise RuntimeError(f'Admin authentication config has no valid {key}.')
+
+app.config.update(
+    SECRET_KEY=auth_config['secret_key'],
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    SESSION_COOKIE_SECURE=os.environ.get('SESSION_COOKIE_SECURE', '').lower() in {'1', 'true', 'on'},
+)
 
 ASSET_FOLDER = os.path.join(app.root_path, 'assets')
 DATABASE_PATH = os.path.join(app.root_path, 'database.db')
@@ -20,6 +45,31 @@ def get_db_connection():
     conn = sqlite3.connect(DATABASE_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+def csrf_token():
+    token = session.get('_csrf_token')
+    if not token:
+        token = secrets.token_urlsafe(32)
+        session['_csrf_token'] = token
+    return token
+
+def validate_csrf():
+    token = request.form.get('csrf_token', '')
+    expected = session.get('_csrf_token', '')
+    if not token or not expected or not hmac.compare_digest(token, expected):
+        abort(400, description='Invalid or missing CSRF token.')
+
+def login_required(view):
+    @wraps(view)
+    def wrapped_view(*args, **kwargs):
+        if not session.get('admin_authenticated'):
+            return redirect(url_for('login'))
+        return view(*args, **kwargs)
+    return wrapped_view
+
+@app.context_processor
+def inject_csrf_token():
+    return {'csrf_token': csrf_token}
 
 with get_db_connection() as conn:
     conn.execute('''CREATE TABLE IF NOT EXISTS portfolio (
@@ -60,6 +110,35 @@ def index():
 def index_page():
     return redirect(url_for('index'))
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if session.get('admin_authenticated'):
+        return redirect(url_for('manage'))
+
+    error = None
+    if request.method == 'POST':
+        validate_csrf()
+        username = request.form.get('username', '')
+        password = request.form.get('password', '')
+        if (
+            hmac.compare_digest(username, auth_config['username'])
+            and check_password_hash(auth_config['password_hash'], password)
+        ):
+            session.clear()
+            session['admin_authenticated'] = True
+            csrf_token()
+            return redirect(url_for('manage'))
+        error = 'მომხმარებლის სახელი ან პაროლი არასწორია.'
+
+    return render_template('login.html', error=error), (401 if error else 200)
+
+@app.route('/logout', methods=['POST'])
+@login_required
+def logout():
+    validate_csrf()
+    session.clear()
+    return redirect(url_for('login'))
+
 @app.route('/<category>.html')
 def portfolio_page(category):
     if category not in PORTFOLIO_TYPES:
@@ -83,8 +162,10 @@ def portfolio_page(category):
     return render_template(f'{category}.html', uploaded_items=uploaded_items)
 
 @app.route('/manage', methods=['GET', 'POST'])
+@login_required
 def manage():
     if request.method == 'POST':
+        validate_csrf()
         category = request.form.get('category', 'general')
         item_type = request.form.get('type', 'thumbnails')
         image_link = request.form.get('image_link', '').strip()
@@ -126,7 +207,9 @@ def manage():
     return render_template('manage.html', items=items)
 
 @app.route('/delete/<int:item_id>', methods=['POST'])
+@login_required
 def delete_item(item_id):
+    validate_csrf()
     conn = get_db_connection()
     item = conn.execute('SELECT * FROM portfolio WHERE id = ?', (item_id,)).fetchone()
     
@@ -143,4 +226,4 @@ def delete_item(item_id):
     return redirect(url_for('manage'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=os.environ.get('FLASK_DEBUG') == '1')

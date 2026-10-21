@@ -8,6 +8,9 @@ const ka={
 
 'Home':'მთავარი','Portfolio':'პორტფოლიო','Feedback':'შეფასებები','About':'ჩვენ შესახებ','Contact us':'დაგვიკავშირდი',
 'Our work':'ჩვენი ნამუშევრები','Start a project':'დავიწყოთ პროექტი',
+'Text motion design showcase':'ტექსტისა და მოძრაობის დიზაინის ნამუშევარი',
+'Available for projects':'ახალი პროექტებისთვის მზად ვართ',
+'Ideas, brought to life.':'იდეები, რომლებსაც რეალობად ვაქცევთ.',
 'TSM Designs is a creative studio making eye-catching visual media, custom branding and dynamic graphics for content creators, businesses and digital platforms. High-impact typography, bold colour and clear visual hierarchy — turned into assets people remember.':'TSM Designs კრეატიული სტუდიაა. კონტენტის შემქმნელების, ბიზნესებისა და ციფრული პლატფორმებისთვის ვქმნით გამორჩეულ ვიზუალურ მასალებს, ბრენდის იდენტობასა და დინამიკურ გრაფიკას. შთამბეჭდავი ტიპოგრაფიით, მკვეთრი ფერებითა და გააზრებული კომპოზიციით შენს იდეებს დასამახსოვრებელ დიზაინად ვაქცევთ.',
 'creators and brands':'კონტენტის შემქმნელი და ბრენდი','designs delivered':'შესრულებული დიზაინი','24h':'24 სთ','average turnaround':'შესრულების საშუალო დრო','h average turnaround':'სთ. საშუალო შესრულების დრო',
 'Thumbnails, banners, logos, posters and jerseys — built for YouTube, Twitch, TikTok and everything in between.':'ვიდეოს გარეკანები, ბანერები, ლოგოები, პოსტერები და მაისურების დიზაინი — YouTube-ისთვის, Twitch-ისთვის, TikTok-ისა და სხვა პლატფორმებისთვის.',

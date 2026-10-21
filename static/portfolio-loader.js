@@ -18,19 +18,5 @@
     if(grid&&Array.isArray(images)){
       grid.replaceChildren(...images.filter(image=>image&&image.src).map(image=>makeFigure(image,pageCategory)));
     }
-    return;
-  }
-
-  for(const key of categories){
-    const shot=document.querySelector('.cards a[href="'+key+'.html"] .shot');
-    const images=Array.isArray(data)?[]:data[key];
-    if(!shot||!Array.isArray(images)||!images.length)continue;
-    const image=images.find(item=>item&&item.src);
-    if(!image)continue;
-    const img=document.createElement('img');
-    img.src=image.src;
-    img.alt=image.alt||key+' design';
-    img.loading='lazy';
-    shot.append(img);
   }
 })();

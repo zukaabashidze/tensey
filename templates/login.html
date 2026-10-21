@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ka">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ადმინისტრატორის შესვლა — TSM</title>
+    <style>
+        *{box-sizing:border-box}
+        body{min-height:100vh;margin:0;display:grid;place-items:center;padding:20px;background:#04070d;color:#e8eef7;font:16px/1.6 system-ui}
+        main{width:min(100%,420px);padding:30px;background:#0a0f1a;border:1px solid #26364d;border-radius:16px}
+        h1{margin:0 0 8px;font-size:25px}
+        p{color:#aabbce}
+        label{display:block;margin:16px 0 6px}
+        input{width:100%;padding:12px;background:#101726;border:1px solid #344359;border-radius:8px;color:#fff;font:inherit}
+        input:focus{outline:2px solid #159ded;outline-offset:2px}
+        button{width:100%;margin-top:22px;padding:12px;border:0;border-radius:8px;background:#159ded;color:#fff;cursor:pointer;font:600 16px system-ui}
+        .error{padding:10px 12px;border:1px solid #803b43;border-radius:8px;background:#35171c;color:#ffc5c9}
+    </style>
+</head>
+<body>
+    <main>
+        <h1>ადმინისტრატორის შესვლა</h1>
+        <p>პორტფოლიოს სამართავად შეიყვანე ავტორიზაციის მონაცემები.</p>
+        {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+        <form method="post" action="{{ url_for('login') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label for="username">მომხმარებლის სახელი</label>
+            <input id="username" name="username" autocomplete="username" required autofocus>
+            <label for="password">პაროლი</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <button type="submit">შესვლა</button>
+        </form>
+    </main>
+</body>
+</html>

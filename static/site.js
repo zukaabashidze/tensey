@@ -51,20 +51,6 @@
     a.href=value && /^https:\/\//i.test(value)?value:defaults[a.getAttribute('aria-label')];
     a.target='_blank';a.rel='noopener noreferrer';a.removeAttribute('aria-disabled');
   });
-  const form=document.getElementById('form');
-  form?.addEventListener('submit',e=>{
-    e.preventDefault();
-    const name=form.elements.namedItem('name');
-    name.setCustomValidity(name.value.trim()?'':'Please enter your name.');
-    if(!form.reportValidity())return;
-    const data=new FormData(form);
-    const body=`Name: ${String(data.get('name')).trim()}\nEmail: ${data.get('email')}\nService: ${data.get('type')}\nDeadline: ${data.get('when')}\n\n${data.get('msg')}`;
-    const note=document.getElementById('note');
-    note.dataset.message='Your email app will open with a draft. Send it there to complete your request. If it does not open, email us directly.';
-    note.textContent=window.tsmTranslate?.(note.dataset.message)||note.dataset.message;
-    location.href=`mailto:${config.email}?subject=${encodeURIComponent('Design enquiry — '+data.get('type'))}&body=${encodeURIComponent(body)}`;
-  });
-  form?.elements.namedItem('name').addEventListener('input',e=>e.target.setCustomValidity(''));
   const lb=document.getElementById('lightbox');
   if(!lb)return;
   const img=document.getElementById('lbImg'),closeButton=document.getElementById('lbClose');
